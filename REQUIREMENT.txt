@@ -1,0 +1,38 @@
+How to install Beautifulsoup?
+To install Beautifulsoup on Windows, Linux, or any operating system, one would need pip package. To check how to install pip on your operating system, check out – PIP Installation – Windows || Linux. 
+Now, run a simple command, 
+ 
+
+pip install beautifulsoup4
+
+
+Install Beautifulsoup4 using Source code
+One can install beautifulsoup, using source code directly, install beautifulsoup tarball from here – download the Beautiful Soup 4 source tarball 
+after downloading cd into the directory and run, 
+ 
+
+Python setup.py install
+
+
+
+Installation of Requests
+This part of the documentation covers the installation of Requests. The first step to using any software package is getting it properly installed.
+
+$ python -m pip install requests
+To install Requests, simply run this simple command in your terminal of choice:
+
+$ python -m pip install requests
+Get the Source Code
+Requests is actively developed on GitHub, where the code is always available.
+
+You can either clone the public repository:
+
+$ git clone git://github.com/psf/requests.git
+Or, download the tarball:
+
+$ curl -OL https://github.com/psf/requests/tarball/main
+# optionally, zipball is also available (for Windows users).
+Once you have a copy of the source, you can embed it in your own Python package, or install it into your site-packages easily:
+
+$ cd requests
+$ python -m pip install .
