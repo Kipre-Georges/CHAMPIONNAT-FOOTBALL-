@@ -1,8 +1,9 @@
+ 
 #LISTE DES IMPORT
 from cProfile import label
 from cgitb import text
+from dataclasses import replace
 from multiprocessing.sharedctypes import Value
-import bs4
 from bs4 import BeautifulSoup
 import requests
 import re
@@ -26,16 +27,31 @@ print("Pour le championnat Italien tapez 5")
 #SELECTION CHAMPIONNAT
 choix_championnat=int(input("Sélectionnez votre championnat en tapant sur  1  , 2 , 3 , 4 , 5 : "))
 
-#BUNDESLIGA
-#classement__team -> class des équipes composant le championnat Allemand
-
 
 #traitement Championnat 1(BUNDESLIGA)
-if choix_championnat ==1 :
-    Bundesliga="https://www.footmercato.net/allemagne/bundesliga/classement"
+if choix_championnat == 1 :
+    
     first_bundesliga=requests.get(Bundesliga)
     response_first_bundesliga=BeautifulSoup(first_bundesliga.text, "html.parser")
+    tableau_Bundesliga=response_first_bundesliga.find_all(class_="classement__team")
+    point_bundesliga=requests.get(Bundesliga)
+    response_point_bundesliga=BeautifulSoup(point_bundesliga.text,"html.parser")
+    tableau_point_bundesliga=response_point_bundesliga.find_all(class_="classement__highlight")
     
-    tableau=response_first_bundesliga.find_all(class_="classement__team")
-    print(tableau[1])
+    print("Le premier de Bundesliga  est :", tableau_Bundesliga[1].text.lstrip().rstrip(),"avec "  , tableau_point_bundesliga[1].text, "Points.")    
+    print("")
+    print("Le deuxième de Bundesliga  est :", tableau_Bundesliga[2].text.lstrip().rstrip(),"avec " , tableau_point_bundesliga[2].text, "Points.")
+    print("") 
+    print("Le troisième de Bundesliga  est :", tableau_Bundesliga[3].text.lstrip().rstrip(),"avec " , tableau_point_bundesliga[3].text, "Points.")  
+    print("")  
+    print("Le quatrième de Bundesliga  est :", tableau_Bundesliga[4].text.lstrip().rstrip(),"avec " , tableau_point_bundesliga[4].text, "Points.")
+    print("")    
+    print("Le cinquième de Bundesliga  est :", tableau_Bundesliga[5].text.lstrip().rstrip(),"avec " , tableau_point_bundesliga[5].text, "Points.")   
+    print("") 
+    
+    
+    
+
+
+    
     
